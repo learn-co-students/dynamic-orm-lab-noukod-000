@@ -1,6 +1,5 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
-
 require 'pry'
 
 class InteractiveRecord
@@ -49,6 +48,7 @@ class InteractiveRecord
     DB[:conn].execute(sql)
 
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
+    # binding.pry
   end
 
   def self.find_by_name(name)

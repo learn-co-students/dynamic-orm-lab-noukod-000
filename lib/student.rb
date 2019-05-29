@@ -3,8 +3,9 @@ require 'active_support/inflector'
 require 'interactive_record.rb'
 
 class Student < InteractiveRecord
-  #connection
-  self.column_names.each do |column_name|
-        attr_accessor column_name.to_sym
-      end
+
+  column_names.each do |name|
+    attr_accessor name.to_sym
+  end
+
 end
